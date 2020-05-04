@@ -27,3 +27,7 @@ sudo usermod -aG docker ${USER}
 su -s ${USER}
 docker ps -a
 ```
+## install docker-compose
+```
+sudo apt install docker-compose
+```
