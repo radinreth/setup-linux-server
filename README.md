@@ -31,3 +31,15 @@ docker ps -a
 ```
 sudo apt install docker-compose
 ```
+
+## install yarn packages
+```
+docker-compose run --rm app_name bash
+yarn install --check-files
+```
+
+## update docker-compose with nginx-proxy & letsencrypt
+## allow host
+```
+config.host << "..."
+```
