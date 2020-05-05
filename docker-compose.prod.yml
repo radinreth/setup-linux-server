@@ -1,0 +1,82 @@
+version: '3'
+
+volumes:
+  db:
+  nginx-certs:
+  nginx-dhparam:
+  nginx-vhost:
+  nginx-html:
+
+services:
+  db:
+    image: postgres:12.2
+    volumes:
+      - db:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: 123456
+
+  web: &rails
+    image: radinreth/mapping-115:0.0.1
+    restart: unless-stopped
+    volumes:
+      - /tmp/pids:/app/tmp/pids
+    depends_on:
+      - db
+      - redis
+    environment:
+      - LANG=C.UTF-8
+      - RAILS_SERVE_STATIC_FILES=true
+      - DATABASE_URL=postgres://postgres:123456@db/mapping_115
+      - VIRTUAL_HOST=115-map.cdcmoh.gov.kh
+      - VIRTUAL_PORT=80
+      - LETSENCRYPT_HOST=115-map.cdcmoh.gov.kh
+      - LETSENCRYPT_EMAIL=kakada@instedd.org
+      - TELCO_URL=https://mptc-api-v1-u4tislywtq-de.a.run.app/covid19-location-solution/current_location
+      - TOKEN=0c416331-9ec2-4c10-bd69-a2638501f0fd
+      - REDIS_URL=redis://redis:6379
+      - ALLOWED_HOSTS=verboice.com,localhost
+    logging:
+      driver: json-file
+      options:
+        max-size: 10m
+        max-file: '5'
+    command:
+    - /bin/sh
+    - -c
+    - bundle exec puma --preload -e production -b tcp://0.0.0.0:80
+    
+  redis:
+    image: redis:5.0.7
+
+  sidekiq:
+    <<: *rails
+    command: bundle exec sidekiq
+    ports: []
+
+  nginx-proxy:
+    image: jwilder/nginx-proxy
+    container_name: nginx-proxy
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+      - nginx-certs:/etc/nginx/certs:ro
+      - nginx-dhparam:/etc/nginx/dhparam
+      - nginx-vhost:/etc/nginx/vhost.d
+      - nginx-html:/usr/share/nginx/html
+    labels:
+      - com.github.jrcs.letsencrypt_nginx_proxy_companion.nginx_proxy
+    depends_on:
+      - web
+
+  letsencrypt:
+    image: jrcs/letsencrypt-nginx-proxy-companion
+    depends_on:
+      - nginx-proxy
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - nginx-certs:/etc/nginx/certs:rw
+      - nginx-dhparam:/etc/nginx/dhparam
+      - nginx-vhost:/etc/nginx/vhost.d
+      - nginx-html:/usr/share/nginx/html
