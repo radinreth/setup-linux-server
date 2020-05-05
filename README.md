@@ -48,7 +48,7 @@ config.host << "..."
 
 - remove old image if necessary
 - [update docker-compose.prod.yml](https://github.com/radinreth/setup-linux-server/blob/master/docker-compose.prod.yml)
-- [docker-compose.dev.yml](www.google.com)
+- [docker-compose.dev.yml](https://github.com/radinreth/setup-linux-server/blob/master/docker-compose.dev.yml)
 
 ## logs
 ```
