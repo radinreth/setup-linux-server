@@ -44,12 +44,6 @@ yarn install --check-files
 config.host << "..."
 ```
 
-
-
-- remove old image if necessary
-- [update docker-compose.prod.yml](https://github.com/radinreth/setup-linux-server/blob/master/docker-compose.prod.yml)
-- [docker-compose.dev.yml](https://github.com/radinreth/setup-linux-server/blob/master/docker-compose.dev.yml)
-
 ## logs
 ```
 docker-compose logs -f service_name
@@ -57,4 +51,19 @@ eg: docker-compose logs -f sidekiq
 ```
 
 ## Dockerfile to build production image
-[Dockerfile]()
+[Dockerfile](https://github.com/radinreth/setup-linux-server/blob/master/Dockerfile)
+
+### build image
+```
+docker build -t radinreth/mapping-115:0.0.1 .
+```
+### push image to docker hub
+```
+docker push radinreth/mapping-115:0.0.1
+```
+
+## Things to keep in mind
+
+- remove old image if necessary
+- [update docker-compose.prod.yml](https://github.com/radinreth/setup-linux-server/blob/master/docker-compose.prod.yml)
+- [docker-compose.dev.yml](https://github.com/radinreth/setup-linux-server/blob/master/docker-compose.dev.yml)
