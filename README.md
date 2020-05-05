@@ -46,6 +46,8 @@ config.host << "..."
 
 
 
+- remove old image if necessary
+
 ## logs
 ```
 docker-compose logs -f service_name
