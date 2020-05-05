@@ -55,3 +55,6 @@ config.host << "..."
 docker-compose logs -f service_name
 eg: docker-compose logs -f sidekiq
 ```
+
+## Dockerfile to build production image
+[Dockerfile]()
