@@ -47,6 +47,7 @@ config.host << "..."
 
 
 - remove old image if necessary
+- update docker-compose
 
 ## logs
 ```
