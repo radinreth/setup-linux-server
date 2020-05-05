@@ -62,6 +62,11 @@ docker build -t radinreth/mapping-115:0.0.1 .
 docker push radinreth/mapping-115:0.0.1
 ```
 
+## puma needs
+```
+mkdir /tmp/pids
+```
+
 ## postgres database url
 DATABASE_URL=postgres://postgres:xxx@db/mapping_115
 
