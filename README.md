@@ -43,3 +43,11 @@ yarn install --check-files
 ```
 config.host << "..."
 ```
+
+
+
+## logs
+```
+docker-compose logs -f service_name
+eg: docker-compose logs -f sidekiq
+```
