@@ -75,3 +75,8 @@ DATABASE_URL=postgres://postgres:xxx@db/mapping_115
 - remove old image if necessary
 - [update docker-compose.prod.yml](https://github.com/radinreth/setup-linux-server/blob/master/docker-compose.prod.yml)
 - [docker-compose.dev.yml](https://github.com/radinreth/setup-linux-server/blob/master/docker-compose.dev.yml)
+
+
+## Issues
+### nginx proxy 413 Request Entity Too Large
+https://github.com/nginx-proxy/nginx-proxy/issues/690#issuecomment-275560780
