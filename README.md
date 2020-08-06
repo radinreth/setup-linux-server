@@ -80,3 +80,16 @@ DATABASE_URL=postgres://postgres:xxx@db/mapping_115
 ## Issues
 ### nginx proxy 413 Request Entity Too Large
 https://github.com/nginx-proxy/nginx-proxy/issues/690#issuecomment-275560780
+
+
+## Backup - Dump Database
+docker exec -t your-db-container-id pg_dump -h db_hostname -U db_user dbname | gzip > dbname_`date +%Y%m%d"_"%H_%M_%S`.gz
+docker exec -t ab8097e00bd0 pg_dump -h db -U progres mapping-115 > ./backup/mapping-115_`date +%Y%m%d"_"%H_%M_%S`.gz
+
+## Restore
+gunzip -c dbname_`date +%Y%m%d"_"%H_%M_%S`.gz | docker exec -i your-db-container psql -h db_hostname -U db_user -d dbname
+
+
+docker exec -t ab8097e00bd0 pg_dump -h db -U postgres mapping_115 | gzip > mapping-115_`date +%Y%m%d"_"%H_%M_%S`.gz
+
+gunzip -c mapping-115_20200512_09_50_25.gz | docker exec -i 26ca90b084b4 psql -h db -U postgres -d mapping_115_development -W
