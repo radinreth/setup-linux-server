@@ -84,6 +84,7 @@ https://github.com/nginx-proxy/nginx-proxy/issues/690#issuecomment-275560780
 
 ## Backup - Dump Database
 docker exec -t your-db-container-id pg_dump -h db_hostname -U db_user dbname | gzip > dbname_`date +%Y%m%d"_"%H_%M_%S`.gz
+
 docker exec -t ab8097e00bd0 pg_dump -h db -U progres mapping-115 > ./backup/mapping-115_`date +%Y%m%d"_"%H_%M_%S`.gz
 
 ## Restore
