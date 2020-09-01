@@ -100,6 +100,7 @@ ex:
 
 
  # dump database from AWS RDS
+ 
  > pg_dump postgres://USERNAME:PASWORD@HOST/DB_NAME > chatfuel_production.sql
  
  # Source sql to local database
@@ -107,4 +108,8 @@ ex:
  > docker exec -i 9d506f08dc98 psql -h 172.22.0.3 -U postgres chatfuel_dev < chatfuel_production.sql
  9d506f08dc98: db-container-id
  172.22.0.3: inspect db-container-id
+ 
+ ## on staging
+ > docker exec -i owso-pea_db_1 psql -U postgres -d chatfuel < path-to-your-file/chatfuel_production-31-aug.sql
+ 
  > docker inspect 9d506f08dc98
