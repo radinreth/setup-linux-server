@@ -113,3 +113,5 @@ ex:
  > docker exec -i owso-pea_db_1 psql -U postgres -d chatfuel < path-to-your-file/chatfuel_production-31-aug.sql
  
  > docker inspect 9d506f08dc98
+ 
+ > docker exec -it owso-pea_db_1 psql -U postgres
