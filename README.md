@@ -81,6 +81,8 @@ DATABASE_URL=postgres://postgres:xxx@db/mapping_115
 ### nginx proxy 413 Request Entity Too Large
 https://github.com/nginx-proxy/nginx-proxy/issues/690#issuecomment-275560780
 
+### SameSite
+https://github.com/rails/rails/pull/28297
 
 ## Backup - Dump Database
 docker exec -t your-db-container-id pg_dump -h db_hostname -U db_user dbname | gzip > dbname_`date +%Y%m%d"_"%H_%M_%S`.gz
