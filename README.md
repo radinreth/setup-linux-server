@@ -105,6 +105,10 @@ ex:
  
  > pg_dump postgres://USERNAME:PASWORD@HOST/DB_NAME > chatfuel_production.sql
  
+ # VERSION mis-match
+ 
+ [stackoverflow](https://stackoverflow.com/questions/12836312/postgresql-9-2-pg-dump-version-mismatch)
+ 
  # Source sql to local database
  
  > docker exec -i 9d506f08dc98 psql -h 172.22.0.3 -U postgres chatfuel_dev < chatfuel_production.sql
