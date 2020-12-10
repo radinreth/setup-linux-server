@@ -121,3 +121,10 @@ ex:
  > docker inspect 9d506f08dc98
  
  > docker exec -it owso-pea_db_1 psql -U postgres
+ 
+# Mobile
+[change app icon](https://medium.com/@ansonmathew/app-icon-in-react-native-ios-and-android-6165757e3fdb)
+[change app name](https://stackoverflow.com/questions/34794679/change-app-name-in-react-native)
+[apk vs aab explain](https://dev.to/srajesh636/how-we-reduced-our-production-apk-size-by-70-in-react-native-1lci)
+[generate apk](https://dev.to/zilurrane/generate-release-mode-apk-for-react-native-project-to-publish-on-playstore-5f78)
+
