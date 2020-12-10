@@ -128,3 +128,5 @@ ex:
 [apk vs aab explain](https://dev.to/srajesh636/how-we-reduced-our-production-apk-size-by-70-in-react-native-1lci)
 [generate apk](https://dev.to/zilurrane/generate-release-mode-apk-for-react-native-project-to-publish-on-playstore-5f78)
 
+./gradlew bundleRelease => generate .aab
+./gradlew assembleRelease => generate .apk
