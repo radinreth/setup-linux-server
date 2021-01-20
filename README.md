@@ -124,7 +124,7 @@ ex:
  
  
  ## Export CSV
- > psql postgres://postgres:iLabInSTEDDorg@owso-production.cmptes23cq5t.ap-southeast-1.rds.amazonaws.com/chatfuel_production -c "Copy (SELECT * FROM voice_messages WHERE (DATE(created_at) BETWEEN '2020/08/28' AND '2021/01/20')) To STDOUT With CSV HEADER DELIMITER ',';" > foo_data.csv
+ > psql postgres://postgres:path/chatfuel_production -c "Copy (SELECT * FROM voice_messages WHERE (DATE(created_at) BETWEEN '2020/08/28' AND '2021/01/20')) To STDOUT With CSV HEADER DELIMITER ',';" > foo_data.csv
  
 # Mobile
 [change app icon](https://medium.com/@ansonmathew/app-icon-in-react-native-ios-and-android-6165757e3fdb)
