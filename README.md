@@ -103,7 +103,7 @@ ex:
 
  # dump database from AWS RDS
  
- > pg_dump postgres://USERNAME:PASWORD@HOST/DB_NAME > chatfuel_production.sql
+ > pg_dump postgres://USERNAME:PASWORD@HOST/DB_NAME -x > chatfuel_production.sql
  
  # VERSION mis-match
  
