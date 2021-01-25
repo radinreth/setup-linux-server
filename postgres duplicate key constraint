@@ -1,0 +1,3 @@
+\d+ table_name;
+SELECT nextval('sessions_id_seq'::regclass);
+SELECT setval('sessions_id_seq'::regclass, (SELECT MAX(id) FROM sessions)+1);
