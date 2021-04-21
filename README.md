@@ -125,7 +125,10 @@ ex:
  
  ## Export CSV
  > psql postgres://postgres:path/chatfuel_production -c "Copy (SELECT * FROM voice_messages WHERE (DATE(created_at) BETWEEN '2020/08/28' AND '2021/01/20')) To STDOUT With CSV HEADER DELIMITER ',';" > foo_data.csv
- 
+
+ ## Export 115
+docker exec -i mapping115_db_1 psql -U postgres -d mapping_115 -c "Copy (select * from locations) To STDOUT With CSV HEADER DELIMITER ',';" > data.csv
+
 # Mobile
 [change app icon](https://medium.com/@ansonmathew/app-icon-in-react-native-ios-and-android-6165757e3fdb)
 [change app name](https://stackoverflow.com/questions/34794679/change-app-name-in-react-native)
