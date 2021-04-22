@@ -90,9 +90,11 @@ docker exec -t your-db-container-id pg_dump -h db_hostname -U db_user dbname | g
 ex:
 
 > docker exec -t ab8097e00bd0 pg_dump -h db -U progres mapping-115 > ./backup/mapping-115_`date +%Y%m%d"_"%H_%M_%S`.gz
-> docker exec -t ab8097e00bd0 pg_dump -h db -U postgres mapping_115 | gzip > mapping-115_`date +%Y%m%d"_"%H_%M_%S`.gz
-> docker exec -t mapping115_db_1 pg_dump -U postgres -d mapping_115 > ./backup/mapping_115_202104221803.sql
 > 
+> docker exec -t ab8097e00bd0 pg_dump -h db -U postgres mapping_115 | gzip > mapping-115_`date +%Y%m%d"_"%H_%M_%S`.gz
+> 
+> docker exec -t mapping115_db_1 pg_dump -U postgres -d mapping_115 > ./backup/mapping_115_202104221803.sql
+
 ## Restore
 > gunzip -c dbname_`date +%Y%m%d"_"%H_%M_%S`.gz | docker exec -i your-db-container psql -h db_hostname -U db_user -d dbname
 
