@@ -150,3 +150,6 @@ adb root
 
 ### pull realm file to local dir
 adb pull /data/data/{app.identifier.com}/files/default.realm .
+
+### remove realm
+adb shell rm /data/data/org.ilabsea.safemigration/files/default.realm
