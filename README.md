@@ -140,3 +140,13 @@ docker exec -i mapping115_db_1 psql -U postgres -d mapping_115 -c "Copy (select 
 
 ./gradlew bundleRelease => generate .aab
 ./gradlew assembleRelease => generate .apk
+
+## Pull realm db to view mongodb studio
+### View filepath
+console.log(realm.path)
+
+### login adb as root
+adb root
+
+### pull realm file to local dir
+adb pull /data/data/{app.identifier.com}/files/default.realm .
