@@ -86,6 +86,7 @@ https://github.com/rails/rails/pull/28297
 
 ## Backup - Dump Database
 docker exec -t your-db-container-id pg_dump -h db_hostname -U db_user dbname | gzip > dbname_`date +%Y%m%d"_"%H_%M_%S`.gz
+docker exec -t your-db-container-id pg_dumpall -c -U postgres > dump_`date +%d-%m-%Y"_"%H_%M_%S`.sql
 
 ex:
 
