@@ -154,3 +154,22 @@ adb pull /data/data/{app.identifier.com}/files/default.realm .
 
 ### remove realm
 adb shell rm /data/data/org.ilabsea.safemigration/files/default.realm
+
+### get 5999th,6000th,6001th users for prize
+```sql
+SELECT session_id, created_at FROM (
+  SELECT DISTINCT ON (session_id) *
+  FROM sessions 
+  ORDER BY session_id, created_at asc
+) t
+ORDER BY created_at asc
+offset 5998
+limit 3;
+
+docker exec -i my_container_id psql -U postgres -d my_db_name -c "Copy (SELECT session_id, created_at FROM (
+  SELECT DISTINCT ON (session_id) *
+  FROM sessions 
+  ORDER BY session_id, created_at asc
+) t
+ORDER BY created_at asc) To STDOUT With CSV HEADER DELIMITER ',';" > data.csv
+```
