@@ -18,3 +18,4 @@ select * from (
       ORDER BY "sessions"."created_at" DESC
 ) tmp where rank <=2;
 ```
+![image](https://user-images.githubusercontent.com/5484758/145536010-8e287e8d-b871-4c38-b1d3-51f2d312ea76.png)
